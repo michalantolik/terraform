@@ -1,12 +1,20 @@
 # Terraform - Personal Learning Notes
 
-## HashiCorp Terraform is an infrastructure automation tool
+## Terraform is an infrastructure automation tool from HashiCorp
 - Implements Infrastructure as Code (IaC) concept
 - Uses HashiCorp Configuration Language (HCL) - *declarative configuration files*
 - Push based deployment - *configuration is pushed to the target environment*
 - Idempotent - *applying the same operation multiple times will not change the result*
-- Open source and vendor agnostic
+- Open source, cloud vendor agnostic, cross-platform
 - Single binary compiled from Go
+- State file must be maintained
+- May take time to support new Azure features
+
+## BICEP is an infrastructure automation tool from Microsoft
+- Uses declarative, human-readable syntax - *like Terraform*
+- Limited to Azure - **unlike Terraform*
+- State file automatically managed - *unlike Terraform*
+- Immediate support for new Azure features - *unlike Terraform*
 
 ## Infrastructure as Code:
 - Provisioning infrastructure through software ...
@@ -23,3 +31,13 @@
 - Reusable components - *DRY - Don't Repeat Yourself*
 - Documented architecture
 - Version controlled
+
+## Infrastructure as Code - Azure tools:
+- ARM templates
+- BICEP
+- Terraform
+
+## Terraform - Declarative Configuration Files
+- Blocks
+- Arguments
+- Exceptions
