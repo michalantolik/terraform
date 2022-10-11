@@ -37,7 +37,23 @@
 - BICEP
 - Terraform
 
-## Terraform - Declarative Configuration Files
+## Terraform - Declarative configuration files
 - Blocks
 - Arguments
 - Exceptions
+
+## Terraform - Example setup
+- Windows PC + PowerShell + Azure account + Azure CLI + Terraform + VS Code
+
+## Terraform - How to install
+- Install Chocolatey --> `choco install terraform` --> `terraform -help`
+
+## Terraform - How to start
+- Create folder --> Create `main.tf` file
+- Open VS Code --> Connect to Azure account (`az login`)
+
+## Terraform - Basic commands
+
+- `terraform init` - create working directory
+- `terraform validate` - check whether configuration is valid
+- `terraform plan` - show changes required by the current configuration
