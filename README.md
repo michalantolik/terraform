@@ -53,7 +53,21 @@
 - Open VS Code --> Connect to Azure account (`az login`)
 
 ## Terraform - Basic commands
-
+- `terraform -help` - show help
 - `terraform init` - create working directory
 - `terraform validate` - check whether configuration is valid
 - `terraform plan` - show changes required by the current configuration
+- `terraform apply` - execute actions from plan to create/update/destroy infrastructure
+- `terraform destroy` - destroys infrastructure
+
+## Terraform - More commands
+- `terraform workspace show` - show current workspace
+- `terraform workspace list` - list workspaces
+- `terraform workspace new dev` - create `dev` workspace
+- `terraform workspace select dev` - select `dev` workspace
+
+## Terraform - Workspaces
+#### Terraform Cloud workspaces
+- Create **separate working directories**
+#### Terraform CLI workspaces
+- Store separate instances of state data **within the same working directory**
