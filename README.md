@@ -142,3 +142,28 @@ az account set --subscription="SUBSCRIPTION_ID"
 - Login to Azure subscription - `az login`
 - Preview changes - `terraform plan`
 - Apply changes - `terraform apply`
+- Check that resource group has been created - `az group list`
+
+```tf
+# Create resource group
+resource "azurerm_resource_group" "main" {
+    name = "learn-tf-rg-westeurope"
+    location = "westeurope"
+}
+```
+
+## Terraform - Create virtual network
+- Declare resource block
+- Login to Azure subscription - `az login`
+- Preview changes - `terraform plan`
+- Apply changes - `terraform apply`
+- Check that resource group has been created - `az group list`
+
+```tf
+# Create VNet
+resource "azurerm_virtual_network" "main" {
+    name = "learn-tf-vnet-westus"
+    location = azurerm_resource_group.main.location
+    resource_group_name = azurerm_resource_group.main.name
+    address_space = [ "10.0.0.0/16" ]
+}
