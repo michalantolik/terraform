@@ -12,7 +12,7 @@
 
 ## BICEP is an infrastructure automation tool from Microsoft
 - Uses declarative, human-readable syntax - *like Terraform*
-- Limited to Azure - **unlike Terraform*
+- Limited to Azure - *unlike Terraform*
 - State file automatically managed - *unlike Terraform*
 - Immediate support for new Azure features - *unlike Terraform*
 
@@ -38,7 +38,7 @@
 - Terraform
 
 ## Terraform - Declarative configuration files
-- Blocks
+- Resource Blocks - *describe one or more infrastracture objects*
 - Arguments
 - Exceptions
 
@@ -71,3 +71,74 @@
 - Create **separate working directories**
 #### Terraform CLI workspaces
 - Store separate instances of state data **within the same working directory**
+
+## Terraform - State file
+- JSON state file ...
+- ... maps real world resources to your configuration
+- ... keeps track of metadata
+- ... improves performance for large infrastructures
+- HINT: Avoid editing state file manually!
+
+## Terraform - State file - Where to store
+- By default in a local file called `terraform.tfstate`
+- Can be stored remotely
+  - Azure storage account
+  - Terraform cloud
+  - Preferred solution
+  
+## Terraform - State file - Refresh
+- Refresh to update the state with the real infrastructure,
+
+## Terraform - Resource block
+```tf
+resource "azurerm_resource" "example" {
+  name = "learn-tf-example"
+  location = "eastus"
+}
+```
+
+## Terraform - Providers
+- Providers to interact with various cloud providers (Azure, GCP, AWS) ...
+
+## Terraform - Providers - How to use
+- Declare provider
+  - Go to https://registry.terraform.io/
+  - Select cloud provider -> Documentation
+  - Copy "Example usage" from website to configuration file --> `main.tf`
+- Install provider
+  - `terraform init` - *will install provider and add it to state file*
+ - Authenticate to cloud provider using selected method
+  - Azure CLI
+    - ... recommended when running Terraform locally
+  - Service Principal + Client Certificate/Client Secret/Open ID Connect
+    - ... recommended when running Terraform in a CI server
+  
+```tf
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.26.0"
+    }
+  }
+}
+
+provider "azurerm" {
+    features {}
+}
+```
+
+## Terraform - Azure authentication using CLI
+See "Authorization" section in documentation https://registry.terraform.io/
+  
+```tf
+az login
+az account list
+az account set --subscription="SUBSCRIPTION_ID"
+```
+  
+## Terraform - Create resource group
+- Declare resource block
+- Login to Azure subscription - `az login`
+- Preview changes - `terraform plan`
+- Apply changes - `terraform apply`
