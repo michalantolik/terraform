@@ -48,3 +48,42 @@ resource "azurerm_network_interface" "internal" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+
+# Create Windows virtual machine  (Windows VM)
+# https://learn.hashicorp.com/tutorials/terraform/sensitive-variables
+variable "main_windows_vm_username" {
+  description = "\"main\" Windows VM username"
+  type = string
+  sensitive = true
+}
+
+variable "main_windows_vm_password" {
+  description = "\"main\" Windows VM password"
+  type = string
+  sensitive = true
+}
+
+resource "azurerm_windows_virtual_machine" "main" {
+  name = "learn-tf-vm-weu"
+  resource_group_name = azurerm_resource_group.main.name
+  location = azurerm_resource_group.main.location
+  size = "Standard_B1s"
+  admin_username = var.main_windows_vm_username
+  admin_password = var.main_windows_vm_password
+
+  network_interface_ids = [
+    azurerm_network_interface.internal.id
+  ]
+
+  os_disk {
+    caching = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer = "WindowsServer"
+    sku = "2016-DataCenter"
+    version = "latest"
+  }
+}
