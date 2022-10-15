@@ -139,7 +139,6 @@ az account set --subscription="SUBSCRIPTION_ID"
   
 ## Terraform - Create resource group
 - Declare resource block
-- Login to Azure subscription - `az login`
 - Preview changes - `terraform plan`
 - Apply changes - `terraform apply`
 - Check that resource group has been created - `az group list`
@@ -154,10 +153,9 @@ resource "azurerm_resource_group" "main" {
 
 ## Terraform - Create virtual network
 - Declare resource block
-- Login to Azure subscription - `az login`
 - Preview changes - `terraform plan`
 - Apply changes - `terraform apply`
-- Check that resource group has been created - `az network vnet list`
+- Check that virtual network has been created - `az network vnet list`
 
 ```tf
 # Create VNet
@@ -171,10 +169,9 @@ resource "azurerm_virtual_network" "main" {
 
 ## Terraform - Create subnet
 - Declare resource block
-- Login to Azure subscription - `az login`
 - Preview changes - `terraform plan`
 - Apply changes - `terraform apply`
-- Check that resource group has been created - `az network vnet list` - *also lists subnets*
+- Check that subnet has been created - `az network vnet list` - *also lists subnets*
 
 ```tf
 # Create subnet
@@ -188,10 +185,9 @@ resource "azurerm_subnet" "main" {
 
 ## Terraform - Create Windows virtual machine (Windows VM)
 - Declare resource block
-- Login to Azure subscription - `az login`
 - Preview changes - `terraform plan`
 - Apply changes - `terraform apply`
-- Check that resource group has been created - `az vm list`
+- Check that virtual machine has been created - `az vm list`
 
 ```tf
 # Create Windows virtual machine  (Windows VM)
