@@ -1,5 +1,8 @@
 # Terraform - Personal Learning Notes
 
+## Terraform - Recommended courses
+- https://www.linkedin.com/learning/introduction-to-terraform-on-azure/
+
 ## Terraform is an infrastructure automation tool from HashiCorp
 - Implements Infrastructure as Code (IaC) concept
 - Uses HashiCorp Configuration Language (HCL) - *declarative configuration files*
