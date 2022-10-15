@@ -1,6 +1,7 @@
 # Terraform - Personal Learning Notes
 
 ## Terraform - Resources
+- https://www.terraform.io/
 - https://www.linkedin.com/learning/introduction-to-terraform-on-azure/
 
 ## Terraform is an infrastructure automation tool from HashiCorp
